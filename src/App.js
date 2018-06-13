@@ -12,12 +12,19 @@ class App extends Component {
     }
   }
 
+
+  updateUser = (newUser) => {
+    this.setState({user: newUser})
+  }
+
+
+
   render() {
     return (
       <div className="App">
           <Main user={this.state.user}/>
 
-          <SignIn />
+          <SignIn updateUser={this.updateUser}/>
       </div>
     );
   }
