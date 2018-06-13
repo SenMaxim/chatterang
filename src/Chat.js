@@ -25,12 +25,12 @@ class Chat extends React.Component {
         }
     }
 
-    addMessage = () => {
+    addMessage = (message) => {
         const messages = [... this.state.messages]
         messages.push({
             id: Date.now(),
-            username: 'jieun',
-            body: 'Im excited for dinner',
+            username: this.props.user.userName,
+            body: message,
         })
 
         this.setState({messages: messages})
@@ -38,13 +38,19 @@ class Chat extends React.Component {
 
     render() {
         return (
-            <div className="Chat">
+            <div className="Chat" style={style}>
                 <ChatHeader />
                 <MessageList messages={this.state.messages}/>
                 <MessageForm addMessage={this.addMessage}/>
             </div>
         );
     }
+}
+
+const style = {
+    flex: '1',
+    display: 'flex',
+    flexDirection: 'column',
 }
 
 export default Chat
