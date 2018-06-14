@@ -1,17 +1,17 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-const RoomList = () => {
+const RoomList = ({ roomItemClicked }) => {
   return (
     <nav
       className={`RoomList ${css(styles.nav)}`}
     >
       <h2 className={css(styles.h2)}>Rooms</h2>
       <ul className={css(styles.list)}>
-        <li className={css(styles.item)}>
+        <li className={css(styles.item)} onClick={() => roomItemClicked('general')}>
           <a href="#" className={css(styles.link)}>general</a>
         </li>
-        <li className={css(styles.item)}>
+        <li className={css(styles.item)} onClick={() => roomItemClicked('random')}>
           <a href="#" className={css(styles.link)}>random</a>
         </li>
       </ul>

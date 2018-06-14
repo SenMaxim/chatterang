@@ -4,17 +4,32 @@ import Sidebar from './Sidebar'
 import Chat from './Chat'
 
 class Main extends Component {
-  render() {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            room: 'general'
+        }
+    
+        this.roomItemClicked = this.roomItemClicked.bind(this)
+    }
+
+    roomItemClicked(message) {
+        this.setState({room:message})
+    }
+
+    render() {
     return (
-      <div className="Main" style={styles}>
+        <div className="Main" style={styles}>
         <Sidebar
-          user={this.props.user}
-          signOut={this.props.signOut}
+            user={this.props.user}
+            signOut={this.props.signOut}
+            roomItemClicked={this.roomItemClicked}
         />
-        <Chat user={this.props.user} />
-      </div>
+        <Chat user={this.props.user} room={this.state.room} />
+        </div>
     )
-  }
+    }
 }
 
 const styles = {
