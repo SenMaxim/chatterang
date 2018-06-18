@@ -1,18 +1,37 @@
 import React from 'react'
 
-const ChatHeader = ({ room }) => {
-  return (
-    <div className="ChatHeader" style={styles.header}>
-      <div className="roomInfo">
-        <h2 style={styles.h2}>
-          #{room.name}
-        </h2>
-        <p style={styles.p}>
-          {room.description}
-        </p>
-      </div>
-    </div>
-  )
+class ChatHeader extends React.Component {
+
+  render() {
+    if (this.props.roomDescription) {
+      return (
+        <div className="ChatHeader" style={styles.header}>
+          <div className="roomInfo">
+            <h2 style={styles.h2}>
+              #{this.props.room.name}
+            </h2>
+            <p style={styles.p}>
+              {this.props.roomDescription}
+            </p>
+          </div>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="ChatHeader" style={styles.header}>
+          <div className="roomInfo">
+            <h2 style={styles.h2}>
+              #{this.props.room.name}
+            </h2>
+            <p style={styles.p}>
+              Room Description
+            </p>
+          </div>
+        </div>
+      )
+    }
+  }
 }
 
 const styles = {

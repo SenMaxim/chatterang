@@ -53,9 +53,14 @@ class Chat extends Component {
   }
 
   render() {
+    console.log('the roomDescription is ' + this.props.roomDescription)
+
     return (
       <div className="Chat" style={styles}>
-        <ChatHeader room={this.props.room} />
+        <ChatHeader 
+          room={this.props.room} 
+          roomDescription={this.props.roomDescription}
+          />
         <MessageList
           messages={this.state.messages}
           room={this.props.room}
